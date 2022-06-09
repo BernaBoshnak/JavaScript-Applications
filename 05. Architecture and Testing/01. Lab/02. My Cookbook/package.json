@@ -1,0 +1,27 @@
+{
+  "name": "js-apps-workshop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {
+    "@types/mocha": "^8.2.0",
+    "chai": "^4.3.6",
+    "http-server": "^0.12.3",
+    "mocha": "^10.0.0",
+    "playwright-chromium": "^1.8.1"
+  },
+  "scripts": {
+    "start": "http-server -a localhost -p 3000 -P http://localhost:3000?"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viktorpts/js-apps-workshop.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/viktorpts/js-apps-workshop/issues"
+  },
+  "homepage": "https://github.com/viktorpts/js-apps-workshop#readme"
+}
