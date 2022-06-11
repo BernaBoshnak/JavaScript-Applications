@@ -7,10 +7,12 @@ const notificationTemplate = (message) => html`
         </section>
 `;
 
-const container = document.getElementById('notification-holder');
+const container = document.createElement('div');
+document.body.appendChild(container);
 
 export function notify(message) {
     render(notificationTemplate(message), container);
+    setTimeout(clear, 3000);
 }
 
 export function clear() {

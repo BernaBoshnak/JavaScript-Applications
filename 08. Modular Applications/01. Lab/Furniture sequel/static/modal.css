@@ -1,0 +1,19 @@
+#overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(174, 171, 171, 0.842);
+}
+
+#modal {
+    width: 350px;
+    background-color: white;
+    padding: 32px;
+    margin: auto;
+    margin-top: 15vh;
+    text-align: center;
+    box-shadow: 0px 0px 35px 25px rgb(124, 124, 124);
+    
+}

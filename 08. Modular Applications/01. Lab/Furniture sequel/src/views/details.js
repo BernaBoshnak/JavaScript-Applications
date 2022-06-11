@@ -1,5 +1,6 @@
 import { html } from '../../node_modules/lit-html/lit-html.js';
 import { getItemById, deleteRecord } from '../api/data.js';
+import { createModal } from '../modal.js';
 
 const detailsTemplate = (item, isOwner, onDelete) => html`<div class="row space-top">
     <div class="col-md-12">
@@ -38,7 +39,7 @@ export async function detailsPage(ctx) {
     ctx.render(detailsTemplate(item, item._ownerId == userId, onDelete));
 
     async function onDelete() {
-        const confirmed = confirm('Are you sure you want to delete this item?');
+        const confirmed = await createModal('Are you sure you want to delete this item?');
         if (confirmed) {
             await deleteRecord(item._id);
             ctx.page.redirect('/');
