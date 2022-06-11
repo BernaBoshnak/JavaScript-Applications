@@ -1,6 +1,7 @@
 import { html } from '../../node_modules/lit-html/lit-html.js';
 import { getFurniture } from '../api/data.js';
 import { itemTemplate } from './common/item.js';
+import { until } from '../../node_modules/lit-html/directives/until.js';
 
 const dashboardTemplate = (data, search, onSearch) => html`
 <div class="row space-top">
@@ -17,16 +18,21 @@ const dashboardTemplate = (data, search, onSearch) => html`
     ${data.map(itemTemplate)}
 </div>`;
 
+const loaderTemplate = html`<p>Loading&hellip;</p>`;
+
 export async function dashboardPage(ctx) {
     const searchParam = ctx.querystring.split('=')[1] || '';
 
-    const data = await getFurniture(searchParam);
-
-    ctx.render(dashboardTemplate(data, searchParam, onSearch));
+    ctx.render(until(populateTemplate(), loaderTemplate));
 
     function onSearch() {
         const search = encodeURIComponent(document.getElementById('searchInput').value);
 
         ctx.page.redirect('/?search=' + search);
+    }
+
+    async function populateTemplate() {
+        const data = await getFurniture(searchParam);
+        return dashboardTemplate(data, searchParam, onSearch);
     }
 }

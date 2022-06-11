@@ -1,3 +1,5 @@
+import { notify } from '../notification.js';
+
 export const settings = {
     host: ''
 }
@@ -18,7 +20,7 @@ async function request(url, options) {
             return response;
         }
     } catch (err) {
-        alert(err.message);
+        notify(err.message);
         throw err;
     }
 }

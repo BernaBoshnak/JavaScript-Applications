@@ -1,6 +1,7 @@
 import { html } from '../../node_modules/lit-html/lit-html.js';
 import { getMyFurniture } from '../api/data.js';
 import { itemTemplate } from './common/item.js';
+import { until } from '../../node_modules/lit-html/directives/until.js';
 
 const myTemplate = (data) => html`
 <div class="row space-top">
@@ -14,7 +15,10 @@ const myTemplate = (data) => html`
 </div>`;
 
 export async function myPage(ctx) {
-    const data = await getMyFurniture();
+    ctx.render(until(populateTemplate(), 'Loading...'));
 
-    ctx.render(myTemplate(data));
+    async function populateTemplate() {
+        const data = await getMyFurniture();
+        return myTemplate(data);
+    }
 }
