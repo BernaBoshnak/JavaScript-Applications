@@ -79,3 +79,7 @@ a.guest,
 a.user {
     display: none;
 }
+
+#views {
+    display: none;
+}

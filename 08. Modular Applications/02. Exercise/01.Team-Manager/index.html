@@ -17,15 +17,19 @@
         <header id="titlebar" class="layout">
             <a href="#" class="site-logo">Team Manager</a>
             <nav>
-                <a href="#" class="action">Browse Teams</a>
-                <a href="#" class="action guest">Login</a>
-                <a href="#" class="action guest">Register</a>
-                <a href="#" class="action user">My Teams</a>
-                <a href="#" class="action user">Logout</a>
+                <a href="/browse" class="action">Browse Teams</a>
+                <a href="/login" class="action guest">Login</a>
+                <a href="/register" class="action guest">Register</a>
+                <a href="/my-teams" class="action user">My Teams</a>
+                <a id="logoutBtn" href="javascript:void(0)" class="action user">Logout</a>
             </nav>
         </header>
+
         <main>
 
+        </main>
+
+        <div id="views">
             <section id="home">
                 <article class="hero layout">
                     <img src="/assets/team.png" class="left-col pad-med">
@@ -205,8 +209,7 @@
                     </div>
                 </article>
             </section>
-
-        </main>
+        </div>
         <footer id="footer">
             SoftUni &copy; 2014-2021
         </footer>

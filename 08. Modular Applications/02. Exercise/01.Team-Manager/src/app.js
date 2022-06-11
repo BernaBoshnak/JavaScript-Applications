@@ -2,10 +2,13 @@ import page from '../node_modules/page/page.mjs';
 import { render } from '../node_modules/lit-html/lit-html.js';
 
 import { homePage } from './views/home.js';
+import { browsePage } from './views/browse.js';
 
 const main = document.querySelector('main');
 
 page('/', decorateContext, homePage);
+page('/index.html', decorateContext, homePage);
+page('/browse', decorateContext, browsePage);
 
 setUserNav();
 page.start();
