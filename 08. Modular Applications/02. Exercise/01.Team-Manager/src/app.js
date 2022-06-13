@@ -8,6 +8,7 @@ import { loginPage } from './views/login.js';
 import { registerPage } from './views/register.js';
 import { createPage } from './views/create.js';
 import { detailsPage } from './views/details.js';
+import { editPage } from './views/edit.js';
 
 const main = document.querySelector('main');
 document.getElementById('logoutBtn').addEventListener('click', logout);
@@ -19,6 +20,7 @@ page('/login', decorateContext, loginPage);
 page('/register', decorateContext, registerPage);
 page('/create', decorateContext, createPage);
 page('/details/:id', decorateContext, detailsPage);
+page('/edit/:id', decorateContext, editPage);
 
 setUserNav();
 page.start();
