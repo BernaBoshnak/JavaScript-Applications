@@ -18,10 +18,7 @@ const detailsTemplate = (team, isOwner, createControls, members, pending) => htm
         <div class="pad-large">
             <h3>Members</h3>
             <ul class="tm-members">
-                ${members.map()}
-                <li>My Username</li>
-                <li>James<a href="#" class="tm-control action">Remove from team</a></li>
-                <li>Meowth<a href="#" class="tm-control action">Remove from team</a></li>
+                ${members.map(m => memberTemplate(m, isOwner))}
             </ul>
         </div>
 
@@ -34,6 +31,13 @@ const detailsTemplate = (team, isOwner, createControls, members, pending) => htm
 
     </article>
 </section>`;
+
+const memberTemplate = (request, isOwner) => html`
+<li>
+    ${request.user.username}
+    ${isOwner ? html`<a @click=${request.decline} href="javascript:void(0)" class="tm-control action">Remove from
+        team</a>` : ''}
+</li>`;
 
 const pendingMemberTemplate = (request) => html`
 <li>
@@ -54,15 +58,14 @@ export async function detailsPage(ctx) {
             getRequestsByTeamId(teamId)
         ]);
 
-        const isOwner = userId == team._ownerId;
-        const members = requests.filter(r => r.status == 'member');
-        const pending = requests
-        .filter(r => r.status == 'pending')
-        .map(r => {
+        requests.forEach(r => {
             r.approve = (e) => approve(e, r);
             r.decline = (e) => leave(e, r._id);
-            return r;
         });
+
+        const isOwner = userId == team._ownerId;
+        const members = requests.filter(r => r.status == 'member');
+        const pending = requests.filter(r => r.status == 'pending');
         team.memberCount = members.length;
 
         return detailsTemplate(team, isOwner, createControls, members, pending);

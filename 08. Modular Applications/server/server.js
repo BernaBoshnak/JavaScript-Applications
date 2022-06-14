@@ -1497,6 +1497,7 @@
     	},
     	members: {
     		".update": "user._id == parent('teams', data.teamId)",
+    		".delete": "user._id == parent('teams', data.teamId)",
     		"*": {
     			teamId: {
     				".update": false
