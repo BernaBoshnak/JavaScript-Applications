@@ -44,7 +44,6 @@ export async function createPage(ctx) {
             }
 
             const team = await createTeam({ name, description, logoUrl });
-            //TODO add creator as member and approve request
 
             e.target.reset();
             ctx.page.redirect('/details/' + team._id);
