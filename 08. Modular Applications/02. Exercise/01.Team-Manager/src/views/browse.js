@@ -1,5 +1,7 @@
 import { html } from '../../node_modules/lit-html/lit-html.js';
+import { until } from '../../node_modules/lit-html/directives/until.js';
 import { getTeams } from '../api/data.js';
+import { loaderTemplate } from './common/loader.js';
 
 const browseTemplate = (teams) => html`
 <section id="browse">
@@ -27,7 +29,10 @@ const teamTemplate = (team) => html`
 </article>`;
 
 export async function browsePage(ctx) {
-    const teams = await getTeams();
+    ctx.render(until(populateTemplate(), loaderTemplate()));
+}
 
-    ctx.render(browseTemplate(teams));
+export async function populateTemplate() {
+    const teams = await getTeams();
+    return browseTemplate(teams);
 }

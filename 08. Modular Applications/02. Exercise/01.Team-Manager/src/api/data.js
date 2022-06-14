@@ -47,3 +47,14 @@ export async function getMembers(teamIds) {
     return await api.get(host + `/data/members?where=${query}`);
 }
 
+export async function cancelMembership(requestId) {
+    return await api.del(host + '/data/members/' + requestId);
+}
+
+export async function approveMembership(request) {
+    const body = {
+        teamId: request.teamId,
+        status: 'member'
+    };
+    return await api.put(host + '/data/members/' + request._id, body);
+}
