@@ -25,8 +25,8 @@ export async function loginPage(ctx) {
 
         const formData = new FormData(e.target);
 
-        const email = formData.get('email');
-        const password = formData.get('password');
+        const email = formData.get('email').trim();
+        const password = formData.get('password').trim();
 
         await login(email, password);
 

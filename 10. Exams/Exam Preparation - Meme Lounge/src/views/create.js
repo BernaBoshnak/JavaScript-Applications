@@ -25,9 +25,9 @@ export async function createPage(ctx) {
 
         const formData = new FormData(e.target);
 
-        const title = formData.get('title');
-        const description = formData.get('description');
-        const imageUrl = formData.get('imageUrl');
+        const title = formData.get('title').trim();
+        const description = formData.get('description').trim();
+        const imageUrl = formData.get('imageUrl').trim();
 
         if (!title || !description || !imageUrl) {
             return alert('All fields are required!');
