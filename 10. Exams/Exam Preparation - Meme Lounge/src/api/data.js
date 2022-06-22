@@ -8,3 +8,7 @@ export const login = api.login;
 export const register = api.register;
 export const logout = api.logout;
 
+export async function getMemes() {
+    return await api.get(host + '/data/memes?sortBy=_createdOn%20desc');
+}
+
