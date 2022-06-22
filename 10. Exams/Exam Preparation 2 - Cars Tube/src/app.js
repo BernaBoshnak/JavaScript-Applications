@@ -10,6 +10,7 @@ import { createPage } from './views/create.js';
 import { detailsPage } from './views/details.js';
 import { editPage } from './views/edit.js';
 import { profilePage } from './views/profile.js';
+import { searchPage } from './views/search.js';
 
 const main = document.getElementById('site-content');
 document.getElementById('logoutBtn').addEventListener('click', logout);
@@ -23,7 +24,7 @@ page('/create', decorateContext, createPage);
 page('/details/:id', decorateContext, detailsPage);
 page('/edit/:id', decorateContext, editPage);
 page('/my-listings', decorateContext, profilePage);
-
+page('/search', decorateContext, searchPage);
 
 page.start();
 

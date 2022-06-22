@@ -31,3 +31,7 @@ export async function updateListing(id, car) {
 export async function deleteCar(id) {
     return await api.del(host + '/data/cars/' + id);
 }
+
+export async function search(query) {
+    return await api.get(host + `/data/cars?where=year%3D${query}`);
+}
