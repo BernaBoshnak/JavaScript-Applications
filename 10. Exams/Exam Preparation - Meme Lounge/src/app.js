@@ -4,6 +4,7 @@ import { render } from '../node_modules/lit-html/lit-html.js';
 import { logout as apiLogout } from './api/data.js';
 import { homePage } from './views/home.js';
 import { registerPage } from './views/register.js';
+import { loginPage } from './views/login.js';
 
 const main = document.querySelector('main');
 document.getElementById('logoutBtn').addEventListener('click', logout);
@@ -11,6 +12,7 @@ setUserNav();
 
 page('/', decorateContext, guestUserOnly, homePage);
 page('/register', decorateContext, registerPage);
+page('/login', decorateContext, loginPage);
 
 page.start();
 
@@ -31,9 +33,10 @@ function decorateContext(ctx, next) {
 }
 
 function setUserNav() {
-    const token = sessionStorage.getItem('authToken');
+    const email = sessionStorage.getItem('email');
 
-    if (token != null) {
+    if (email != null) {
+        document.querySelector('div.profile > span').textContent = `Welcome, ${email}`;
         document.querySelector('.user').style.display = '';
         document.querySelector('.guest').style.display = 'none';
     } else {

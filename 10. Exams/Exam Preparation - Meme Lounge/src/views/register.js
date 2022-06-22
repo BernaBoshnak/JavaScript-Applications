@@ -17,12 +17,12 @@ const registerTemplate = (onSubmit) => html`
             <div class="gender">
                 <input type="radio" name="gender" id="female" value="female">
                 <label for="female">Female</label>
-                <input type="radio" name="gender" id="male" value="male" checked>
+                <input type="radio" name="gender" id="male" value="male">
                 <label for="male">Male</label>
             </div>
             <input type="submit" class="registerbtn button" value="Register">
             <div class="container signin">
-                <p>Already have an account?<a href="#">Sign in</a>.</p>
+                <p>Already have an account?<a href="/login">Sign in</a>.</p>
             </div>
         </div>
     </form>
