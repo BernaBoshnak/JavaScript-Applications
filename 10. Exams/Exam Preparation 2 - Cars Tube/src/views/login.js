@@ -32,8 +32,8 @@ export async function loginPage(ctx) {
 
         const formData = new FormData(e.target);
 
-        const username = formData.get('username');
-        const password = formData.get('password');
+        const username = formData.get('username').trim();
+        const password = formData.get('password').trim();
 
         if (!username || !password) {
             return alert('All fields are required!');
@@ -42,6 +42,6 @@ export async function loginPage(ctx) {
         await login(username, password);
 
         ctx.setUserNav();
-        ctx.page.redirect('/catalog');
+        ctx.page.redirect('/all-listings');
     }
 }

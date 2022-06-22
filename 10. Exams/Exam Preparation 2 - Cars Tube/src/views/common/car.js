@@ -3,7 +3,7 @@ import { html } from '../../../node_modules/lit-html/lit-html.js';
 export const carTemplate = (car) => html`
 <div class="listing">
     <div class="preview">
-        <img src="/images/audia3.jpg">
+        <img src=${car.imageUrl}>
     </div>
     <h2>${car.brand} ${car.model}</h2>
     <div class="info">

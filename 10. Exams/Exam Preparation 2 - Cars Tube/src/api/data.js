@@ -10,3 +10,8 @@ export const logout = api.logout;
 export async function getAllListings() {
     return await api.get(host + '/data/cars?sortBy=_createdOn%20desc');
 }
+
+export async function createCarListing(car) {
+    return await api.post(host + '/data/cars', car);
+}
+

@@ -15,6 +15,5 @@ const catalogTemplate = (cars) => html`
 
 export async function catalogPage(ctx) {
     const cars = await getAllListings();
-
     ctx.render(catalogTemplate(cars));
 }

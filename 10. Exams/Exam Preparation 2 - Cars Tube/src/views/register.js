@@ -53,6 +53,6 @@ export async function registerPage(ctx) {
         await register(username, password);
 
         ctx.setUserNav();
-        ctx.page.redirect('/catalog');
+        ctx.page.redirect('/all-listings');
     }
 }
