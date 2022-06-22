@@ -24,3 +24,6 @@ export async function updateMeme(id, meme) {
     return await api.put(host + '/data/memes/' + id, meme);
 }
 
+export async function deleteMeme(id) {
+    return await api.del(host + '/data/memes/' + id);
+}
