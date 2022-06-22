@@ -35,9 +35,9 @@ export async function loginPage(ctx) {
         const username = formData.get('username').trim();
         const password = formData.get('password').trim();
 
-        if (!username || !password) {
-            return alert('All fields are required!');
-        }
+        // if (!username || !password) {
+        //     return alert('All fields are required!');
+        // }
 
         await login(username, password);
 
