@@ -7,3 +7,6 @@ export const login = api.login;
 export const register = api.register;
 export const logout = api.logout;
 
+export async function getAllListings() {
+    return await api.get(host + '/data/cars?sortBy=_createdOn%20desc');
+}
