@@ -58,8 +58,8 @@ export async function del(url) {
     return await request(url, getOptions('delete'));
 }
 
-export async function login(email, password) {
-    const result = await post(settings.host + '/users/login', { email, password });
+export async function login(username, email, password, gender) {
+    const result = await post(settings.host + '/users/login', { username, email, password, gender });
 
     sessionStorage.setItem('username', result.username);
     sessionStorage.setItem('email', result.email);
