@@ -44,11 +44,11 @@ export async function createPage(ctx) {
         const brand = formData.get('brand').trim();
         const model = formData.get('model').trim();
         const description = formData.get('description').trim();
-        const year = Number(formData.get('year')).trim();
+        const year = Number(formData.get('year'));
         const imageUrl = formData.get('imageUrl').trim();
-        const price = Number(formData.get('price')).trim();
+        const price = Number(formData.get('price'));
 
-        if(Number.isNaN(year) || Number.isNaN(price)) {
+        if (year < 0 || price < 0) {
             return alert('Year and Price must be positive numbers!');
         }
 

@@ -19,6 +19,10 @@ export async function createCarListing(car) {
     return await api.post(host + '/data/cars', car);
 }
 
+export async function updateListing(id, car) {
+    return await api.put(host + '/data/cars/' + id, car);
+}
+
 export async function deleteCar(id) {
     return await api.del(host + '/data/cars/' + id);
 }

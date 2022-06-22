@@ -191,7 +191,7 @@ describe('E2E tests', function () {
         });
     });
 
-    describe.only('Catalog [ 25 Points ]', () => {
+    describe('Catalog [ 25 Points ]', () => {
         it('loads static home page [ 5 Points ]', async () => {
             await page.goto(host);
             await page.waitForTimeout(interval);
@@ -251,7 +251,7 @@ describe('E2E tests', function () {
         });
     });
 
-    describe.only('CRUD [ 40 Points ]', () => {
+    describe('CRUD [ 40 Points ]', () => {
 
         // Login user
         beforeEach(async () => {
