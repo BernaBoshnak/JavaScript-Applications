@@ -15,6 +15,11 @@ export async function getListingById(id) {
     return await api.get(host + '/data/cars/' + id);
 }
 
+export async function getMyListings() {
+    const userId = sessionStorage.getItem('userId');
+    return await api.get(host + `/data/cars?where=_ownerId%3D%22${userId}%22&sortBy=_createdOn%20desc`);
+}
+
 export async function createCarListing(car) {
     return await api.post(host + '/data/cars', car);
 }

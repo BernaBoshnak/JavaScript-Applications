@@ -9,6 +9,7 @@ import { catalogPage } from './views/catalog.js';
 import { createPage } from './views/create.js';
 import { detailsPage } from './views/details.js';
 import { editPage } from './views/edit.js';
+import { profilePage } from './views/profile.js';
 
 const main = document.getElementById('site-content');
 document.getElementById('logoutBtn').addEventListener('click', logout);
@@ -21,6 +22,7 @@ page('/all-listings', decorateContext, catalogPage);
 page('/create', decorateContext, createPage);
 page('/details/:id', decorateContext, detailsPage);
 page('/edit/:id', decorateContext, editPage);
+page('/my-listings', decorateContext, profilePage);
 
 
 page.start();
@@ -28,7 +30,7 @@ page.start();
 function guestUserOnly(ctx, next) {
     const token = sessionStorage.getItem('authToken');
     if (token != null) {
-        return ctx.page.redirect('/catalog');
+        return ctx.page.redirect('/all-listings');
     }
 
     next();
