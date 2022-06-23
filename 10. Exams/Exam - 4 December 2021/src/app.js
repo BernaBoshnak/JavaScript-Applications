@@ -5,6 +5,7 @@ import { logout as apiLogout } from './api/data.js';
 import { homePage } from './views/home.js';
 import { registerPage } from './views/register.js';
 import { loginPage } from './views/login.js';
+import { createPage } from './views/create.js';
 
 const main = document.getElementById('main-content');
 document.getElementById('logoutBtn').addEventListener('click', logout);
@@ -13,6 +14,7 @@ setUserNav();
 page('/', decorateContext, homePage);
 page('/register', decorateContext, registerPage);
 page('/login', decorateContext, loginPage);
+page('/create', decorateContext, createPage);
 
 page.start();
 
