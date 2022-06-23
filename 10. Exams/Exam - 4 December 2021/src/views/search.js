@@ -2,7 +2,7 @@ import { html } from '../../node_modules/lit-html/lit-html.js';
 import { search } from '../api/data.js';
 import { albumTemplate } from './common/album.js';
 
-const searchTemplate = (albums, onSearch, name) => html`
+const searchTemplate = (albums, userId, onSearch, name) => html`
 <section id="searchPage">
     <h1>Search by Name</h1>
 
@@ -17,15 +17,16 @@ const searchTemplate = (albums, onSearch, name) => html`
 
     ${albums.length == 0 ? 
     html`<p class="no-result">No result.</p>` : 
-    albums.map(albumTemplate)}
+    albums.map(a => albumTemplate(a, userId))}
     
     </div>
 </section>`;
 
 export async function searchPage(ctx) {
+    const userId = sessionStorage.getItem('userId');
     const name = ctx.querystring.split('=')[1];
     const albums = name ? await search(name) : [];
-    ctx.render(searchTemplate(albums, onSearch, name));
+    ctx.render(searchTemplate(albums, userId , onSearch, name));
 
     function onSearch() {
         const query = document.getElementById('search-input').value;

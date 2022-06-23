@@ -1,6 +1,6 @@
 import {html} from '../../../node_modules/lit-html/lit-html.js';
 
-export const albumTemplate = (album) => html`
+export const albumTemplate = (album, isUser) => html`
 <div class="card-box">
     <img src=${album.imgUrl}>
     <div>
@@ -11,8 +11,9 @@ export const albumTemplate = (album) => html`
             <p class="price">Price: $${album.price}</p>
             <p class="date">Release Date: ${album.releaseDate}</p>
         </div>
-        <div class="btn-group">
+        ${isUser ? html`<div class="btn-group">
             <a href="/details/${album._id}" id="details">Details</a>
-        </div>
+        </div>` : ''}
+        
     </div>
 </div>`;
