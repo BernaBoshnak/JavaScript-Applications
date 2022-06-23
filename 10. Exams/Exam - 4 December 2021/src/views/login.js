@@ -1,11 +1,11 @@
 import { html } from '../../node_modules/lit-html/lit-html.js';
-import { register } from '../api/data.js';
+import { login } from '../api/data.js';
 
-const registerTemplate = (onSubmit) => html`
-<section id="registerPage">
+const loginTemplate = (onSubmit) => html`
+<section id="loginPage">
     <form @submit=${onSubmit}>
         <fieldset>
-            <legend>Register</legend>
+            <legend>Login</legend>
 
             <label for="email" class="vhide">Email</label>
             <input id="email" class="email" name="email" type="text" placeholder="Email">
@@ -13,20 +13,17 @@ const registerTemplate = (onSubmit) => html`
             <label for="password" class="vhide">Password</label>
             <input id="password" class="password" name="password" type="password" placeholder="Password">
 
-            <label for="conf-pass" class="vhide">Confirm Password:</label>
-            <input id="conf-pass" class="conf-pass" name="conf-pass" type="password" placeholder="Confirm Password">
-
-            <button type="submit" class="register">Register</button>
+            <button type="submit" class="login">Login</button>
 
             <p class="field">
-                <span>If you already have profile click <a href="/login">here</a></span>
+                <span>If you don't have profile click <a href="/register">here</a></span>
             </p>
         </fieldset>
     </form>
 </section>`;
 
-export async function registerPage(ctx) {
-    ctx.render(registerTemplate(onSubmit));
+export async function loginPage(ctx) {
+    ctx.render(loginTemplate(onSubmit));
 
     async function onSubmit(e) {
         e.preventDefault();
@@ -35,17 +32,12 @@ export async function registerPage(ctx) {
 
         const email = formData.get('email').trim();
         const password = formData.get('password').trim();
-        const repass = formData.get('conf-pass').trim();
 
-        if(!email || !password || !repass) {
+        if (!email || !password) {
             return alert('All field are required!');
         }
 
-        if(password != repass) {
-            return alert(`Password don't match!`);
-        }
-
-        await register(email, password);
+        await login(email, password);
 
         ctx.setUserNav();
         ctx.page.redirect('/');
