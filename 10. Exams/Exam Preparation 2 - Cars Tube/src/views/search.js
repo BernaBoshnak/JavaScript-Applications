@@ -1,6 +1,6 @@
 import { html } from '../../node_modules/lit-html/lit-html.js';
 import { carTemplate } from './common/car.js';
-import { getAllListings, search } from '../api/data.js';
+import { search } from '../api/data.js';
 
 const searchTemplate = (cars, onSearch, year) => html`
 <section id="search-cars">

@@ -9,6 +9,7 @@ import { createPage } from './views/create.js';
 import { catalogPage } from './views/catalog.js';
 import { detailsPage } from './views/details.js';
 import { editPage } from './views/edit.js';
+import { searchPage } from './views/search.js';
 
 const main = document.getElementById('main-content');
 document.getElementById('logoutBtn').addEventListener('click', logout);
@@ -21,6 +22,7 @@ page('/create', decorateContext, createPage);
 page('/catalog', decorateContext, catalogPage);
 page('/details/:id', decorateContext, detailsPage);
 page('/edit/:id', decorateContext, editPage);
+page('/search', decorateContext, searchPage);
 
 page.start();
 
