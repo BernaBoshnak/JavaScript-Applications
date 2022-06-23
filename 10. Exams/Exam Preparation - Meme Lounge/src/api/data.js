@@ -22,7 +22,7 @@ export async function getMyMemes() {
 }
 
 export async function createMeme(meme) {
-    return api.post(host + '/data/memes', meme);
+    return await api.post(host + '/data/memes', meme);
 }
 
 export async function updateMeme(id, meme) {
