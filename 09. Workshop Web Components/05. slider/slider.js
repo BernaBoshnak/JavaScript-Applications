@@ -119,4 +119,4 @@ class Slider extends HTMLElement {
     }
 }
 
-customElements.define('app-slider', Slider);
+window.customElements.define('app-slider', Slider);
