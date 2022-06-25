@@ -34,7 +34,7 @@ function createOptions(method = 'get', body) {
 
     const user = getUserData();
     if (user) {
-        options.headers['X-Authorization'] = user.accesToken;
+        options.headers['X-Authorization'] = user.accessToken;
     }
 
     if (body) {

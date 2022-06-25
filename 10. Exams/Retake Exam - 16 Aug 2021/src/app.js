@@ -4,12 +4,15 @@ import { render } from '../node_modules/lit-html/lit-html.js';
 import { logout as apiLogout } from './api/data.js';
 import { getUserData } from './utility.js';
 import { homePage } from './views/home.js';
+import { loginPage, registerPage } from './views/auth.js';
 
 const main = document.getElementById('main-content');
 document.getElementById('logoutBtn').addEventListener('click', logout);
 setUserNav();
 
 page('/', decorateContext, homePage);
+page('/login', decorateContext, loginPage);
+page('/register', decorateContext, registerPage);
 
 page.start();
 
