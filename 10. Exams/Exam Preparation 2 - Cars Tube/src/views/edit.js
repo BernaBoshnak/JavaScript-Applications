@@ -44,29 +44,24 @@ export async function editPage(ctx) {
 
         const formData = new FormData(e.target);
 
-        const brand = formData.get('brand').trim();
-        const model = formData.get('model').trim();
-        const description = formData.get('description').trim();
-        const year = Number(formData.get('year'));
-        const imageUrl = formData.get('imageUrl').trim();
-        const price = Number(formData.get('price'));
+        const car = {
+            brand: formData.get('brand').trim(),
+            model: formData.get('model').trim(),
+            description: formData.get('description').trim(),
+            year: Number(formData.get('year')),
+            imageUrl: formData.get('imageUrl').trim(),
+            price: Number(formData.get('price'))
+        }
 
-        if (year < 0 || price < 0) {
+        if (car.year < 0 || car.price < 0) {
             return alert('Year and Price must be positive numbers!');
         }
 
-        if (!brand || !model || !description || !year || !imageUrl || !price) {
+        if (Object.values(car).some(x => !x)) {
             return alert('All fields are required!');
         }
 
-        await updateListing(carId, {
-            brand,
-            model,
-            description,
-            year,
-            imageUrl,
-            price
-        });
+        await updateListing(carId, car);
 
         ctx.page.redirect('/details/' + carId);
     }

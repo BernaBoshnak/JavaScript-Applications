@@ -24,7 +24,7 @@ const searchTemplate = (albums, userId, onSearch, name) => html`
 
 export async function searchPage(ctx) {
     const userId = sessionStorage.getItem('userId');
-    const name = ctx.querystring.split('=')[1];
+    const [, name] = ctx.querystring.split('=')[1];
     const albums = name ? await search(name) : [];
     ctx.render(searchTemplate(albums, userId , onSearch, name));
 

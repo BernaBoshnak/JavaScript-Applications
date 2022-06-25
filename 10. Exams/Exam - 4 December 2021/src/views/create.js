@@ -51,8 +51,7 @@ export async function createPage(ctx) {
         const genre = formData.get('genre').trim();
         const description = formData.get('description').trim();
 
-
-        if (!name || !imgUrl || !price || !releaseDate || !artist || !genre || !description) {
+        if (![name, imgUrl, price, releaseDate, artist, genre, description].every(Boolean)) {
             return alert('All field are required!');
         }
 

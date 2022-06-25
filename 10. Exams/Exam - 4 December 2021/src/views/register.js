@@ -37,7 +37,7 @@ export async function registerPage(ctx) {
         const password = formData.get('password').trim();
         const repass = formData.get('conf-pass').trim();
 
-        if(!email || !password || !repass) {
+        if(![email, password, repass].every(Boolean)) {
             return alert('All field are required!');
         }
 

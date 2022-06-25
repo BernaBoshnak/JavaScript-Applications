@@ -6,9 +6,9 @@ const searchTemplate = (cars, onSearch, year) => html`
 <section id="search-cars">
     <h1>Filter by year</h1>
 
-    <div @click=${onSearch} class="container">
+    <div class="container">
         <input id="search-input" type="text" name="search" placeholder="Enter desired production year" .value=${year || ''}>
-        <button class="button-list">Search</button>
+        <button @click=${onSearch} class="button-list">Search</button>
     </div>
 
     <h2>Results:</h2>

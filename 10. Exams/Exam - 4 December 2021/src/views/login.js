@@ -33,7 +33,7 @@ export async function loginPage(ctx) {
         const email = formData.get('email').trim();
         const password = formData.get('password').trim();
 
-        if (!email || !password) {
+        if (![email, password].every(Boolean)) {
             return alert('All field are required!');
         }
 
