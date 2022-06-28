@@ -1,5 +1,5 @@
 import { html } from '../../node_modules/lit-html/lit-html.js';
-import { getAllGames } from '../api/data.js';
+import { getRecentGame } from '../api/data.js';
 
 const homeTemplate = (games) => html`
 <section id="welcome-world">
@@ -35,7 +35,7 @@ const gameTemplate = (game) => html`
 </div>`;
 
 export async function homePage(ctx) {
-    const games = await getAllGames();
+    const games = await getRecentGame();
     
     ctx.render(homeTemplate(games));
 }

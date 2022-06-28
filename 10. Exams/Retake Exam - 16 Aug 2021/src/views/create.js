@@ -36,7 +36,7 @@ export async function createPage(ctx) {
         const game = {
             title: formData.get('title').trim(),
             category: formData.get('category').trim(),
-            maxLevel: Number(formData.get('maxLevel').trim()),
+            maxLevel: formData.get('maxLevel').trim(),
             imageUrl: formData.get('imageUrl').trim(),
             summary: formData.get('summary').trim()
         }
