@@ -2,7 +2,9 @@
 
 ### :scroll: Description
 
-In the `JS Applications` course, you will learn HTTP requests. You will learn about REST Services, what a Baas (backend as a service) is and how to work with it, what asynchronous code means (Promises, using async/await), what Templating and Routing are. During the course, you will create a Single Page Application.
+Course includes working with `HTTP` and `REST` services, `asynchronous programming`, and `authenticating remote data`. It also covers the development of `single page applications`, which are web applications that load a single HTML page and then dynamically update the page with new data as the user interacts with the application. This can help to create a more seamless and responsive user experience.
+
+Other topics that are covered in the course include `architecture`, `testing`, `client-side rendering`, `routing`, and `modular application development`.
 
 <hr>
 
